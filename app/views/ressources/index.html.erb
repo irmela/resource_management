@@ -23,7 +23,7 @@
       <%= content_tag_for(:tr, @ressources) do |ressource| %>
             <td><%= ressource.name %></td>
             <td><%= ressource.department %></td>
-            <td><%= ressource.color %></td>
+            <td><span class="color-icon" style="background-color:<%= ressource.color %>"></span><%= ressource.color %></td>
             <td><%= link_to 'Show', ressource %></td>
         <td><%= link_to 'Edit', edit_ressource_path(ressource) %></td>
         <td><%= link_to 'Destroy', ressource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
