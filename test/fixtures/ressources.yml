@@ -3,7 +3,9 @@
 one:
   name: MyString
   department: MyString
+  color: MyString
 
 two:
   name: MyString
   department: MyString
+  color: MyString

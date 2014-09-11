@@ -3,6 +3,7 @@ class CreateRessources < ActiveRecord::Migration
     create_table :ressources do |t|
       t.string :name
       t.string :department
+      t.string :color
 
       t.timestamps
     end
