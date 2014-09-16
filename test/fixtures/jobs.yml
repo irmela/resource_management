@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_id: 1
+  ressource_id: 1
+  start_date: 2014-09-16
+  end_date: 2014-09-16
+
+two:
+  project_id: 1
+  ressource_id: 1
+  start_date: 2014-09-16
+  end_date: 2014-09-16
