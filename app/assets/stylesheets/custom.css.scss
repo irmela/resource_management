@@ -8,3 +8,25 @@
   vertical-align: middle;
   @include border-radius(3px);
 }
+
+.week-container {
+	display: inline-block;
+	span { display: block; text-align: center; }
+	margin: .5em;
+}
+
+ul.week {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		display: inline-block;
+		padding: .2em;
+		margin: .1em;
+		height: 2em;
+		width: 2em;
+		@include border-radius(3px);
+		border: 1px solid #c2c2c2;
+		text-align: center;
+	}
+}

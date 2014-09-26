@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'calendar#calendar_view'
+
   resources :jobs
 
   resources :projects
