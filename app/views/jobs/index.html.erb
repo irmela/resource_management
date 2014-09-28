@@ -22,8 +22,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @jobs) do |job| %>
-            <td><%= job.project_id %></td>
-            <td><%= job.ressource_id %></td>
+            <td><%= Project.find_by_id(job.project_id).name %></td>
+            <td><%= Ressource.find_by_id(job.ressource_id).name %></td>
             <td><%= job.start_date %></td>
             <td><%= job.end_date %></td>
             <td><%= link_to 'Show', job %></td>

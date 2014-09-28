@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
