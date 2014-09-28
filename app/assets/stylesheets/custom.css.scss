@@ -15,18 +15,22 @@
 	margin: .5em;
 }
 
-ul.week {
+.week {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	li {
+	.day {
 		display: inline-block;
-		padding: .2em;
+		vertical-align: top;
 		margin: .1em;
 		height: 2em;
 		width: 2em;
 		@include border-radius(3px);
 		border: 1px solid #c2c2c2;
 		text-align: center;
+		div {
+			line-height: 2em;
+			vertical-align: middle;
+		}
 	}
 }
