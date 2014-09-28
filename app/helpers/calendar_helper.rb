@@ -38,9 +38,8 @@ module CalendarHelper
         # remove Sat and Sun from hash
         week.delete(week.last)
         week.delete(week.last)
-        #concat link_to 'new', new_job_path
-        newLink = link_to '', new_job_path
     	results = week.map do |day|
+            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :date => day})
         	content_tag( :div, jobs_by_date(day, ressourceID).to_s + newLink.to_s, :class => "day", :id => day)
     	end
         safe_join results

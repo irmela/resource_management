@@ -23,20 +23,20 @@
     <%= f.label :ressource_id, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
       <%# f.number_field :ressource_id, :class => "form-control" %>
-      <%= f.autocomplete_field :ressource_id, autocomplete_ressource_name_jobs_path, :id_element => "#job_ressource_id"%>
+      <%= f.autocomplete_field :ressource_id, autocomplete_ressource_name_jobs_path, :id_element => "#job_ressource_id", :value => params[:ressource_id]%>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :start_date, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :start_date, 'data-provide' => 'datepicker' %>
+      <%= f.text_field :start_date, 'data-provide' => 'datepicker', :value => params[:date] %>
       <%# f.date_select :start_date, :class => "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :end_date, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.text_field :end_date, 'data-provide' => 'datepicker' %>
+      <%= f.text_field :end_date, 'data-provide' => 'datepicker', :value => params[:date] %>
       <%# f.date_select :end_date, :class => "form-control" %>
     </div>
   </div>
