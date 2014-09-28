@@ -26,3 +26,10 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+== TODO
+
+* Colorpicker and shading
+* Set ressource and Date to given parameters when
+* Validation
+* Department Filter

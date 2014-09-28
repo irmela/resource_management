@@ -12,10 +12,10 @@
 
 <dl class="dl-horizontal">
   <dt>Project:</dt>
-  <dd><%= @job.project_id %></dd>
+  <dd><%= Project.find_by_id(@job.project_id).name %></dd>
 
   <dt>Ressource:</dt>
-  <dd><%= @job.ressource_id %></dd>
+  <dd><%= Ressource.find_by_id(@job.ressource_id).name %></dd>
 
   <dt>Start date:</dt>
   <dd><%= @job.start_date %></dd>
