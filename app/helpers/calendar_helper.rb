@@ -25,7 +25,7 @@ module CalendarHelper
     end
 
 	def render_weeks(ressource, ressourceID)
-        content_tag :tr do
+        content_tag :tr, :class => "ressource-row" do
             concat content_tag( :td, ressource)
             results = @date_range.each_slice(7).map do |week|
     			concat content_tag( :td, render_week(week, ressourceID), :class => "week")
@@ -46,7 +46,7 @@ module CalendarHelper
 	     	if date.between?(job.start_date, job.end_date) && ressourceID == job.ressource_id
 	     		projectID = job.project_id
 	     		projectColor = Project.find_by_id(projectID).color
-	     		content_tag( :div, date.day, :style => "background: #{projectColor};")
+	     		content_tag( :div, '', :style => "background: #{projectColor};")
 	    	end
 	    end
 	    safe_join results
