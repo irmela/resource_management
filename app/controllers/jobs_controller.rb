@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  autocomplete :project, :name, :display_value => :name_and_id
+  autocomplete :ressource, :name, :display_value => :name_and_id
 
   # GET /jobs
   # GET /jobs.json

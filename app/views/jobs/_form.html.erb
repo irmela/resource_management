@@ -15,13 +15,15 @@
   <div class="form-group">
     <%= f.label :project_id, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :project_id, :class => "form-control" %>
+      <%# f.number_field :project_id, :class => "form-control" %>
+      <%= f.autocomplete_field :project_id, autocomplete_project_name_jobs_path, :id_element => "#job_project_id"%>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :ressource_id, :class => "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.number_field :ressource_id, :class => "form-control" %>
+      <%# f.number_field :ressource_id, :class => "form-control" %>
+      <%= f.autocomplete_field :ressource_id, autocomplete_ressource_name_jobs_path, :id_element => "#job_ressource_id"%>
     </div>
   </div>
   <div class="form-group">

@@ -44,3 +44,6 @@ gem 'bootstrap-generators', '~> 3.1.1'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap-datepicker-rails'
+
+gem 'jquery-ui-rails'
+gem 'rails4-autocomplete'
