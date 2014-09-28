@@ -35,6 +35,9 @@ module CalendarHelper
     end
 
     def render_week(week, ressourceID)
+        # remove Sat and Sun from hash
+        week.delete(week.last)
+        week.delete(week.last)
     	results = week.map do |day|
         	content_tag( :div, jobs_by_date(day, ressourceID), :class => "day", :id => day)
     	end
@@ -46,7 +49,8 @@ module CalendarHelper
 	     	if date.between?(job.start_date, job.end_date) && ressourceID == job.ressource_id
 	     		projectID = job.project_id
 	     		projectColor = Project.find_by_id(projectID).color
-	     		content_tag( :div, '', :style => "background: #{projectColor};")
+                editLink = link_to '', edit_job_path(job)
+	     		content_tag( :div, editLink.to_s, :style => "background: #{projectColor};")
 	    	end
 	    end
 	    safe_join results

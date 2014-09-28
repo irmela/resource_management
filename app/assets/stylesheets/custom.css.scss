@@ -22,16 +22,28 @@
 	.day {
 		display: inline-block;
 		vertical-align: top;
-		margin: .1em;
+		margin: .1em 0;
 		height: 2em;
 		width: 2em;
-		@include border-radius(3px);
 		border: 1px solid #c2c2c2;
+		border-left: 0;
 		text-align: center;
+		&:first-child {
+			@include border-radius(3px 0px 0px 3px);
+			border-left: 1px solid #c2c2c2;
+		}
+		&:last-child {
+			@include border-radius(0px 3px 3px 0px);
+		}
 		div {
 			line-height: 2em;
 			vertical-align: middle;
 			height: 50%;
+			a {
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
 		}
 	}
 }
