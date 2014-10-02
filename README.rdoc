@@ -30,6 +30,6 @@ Please feel free to use a different markup language if you do not plan to run
 == TODO
 
 * Colorpicker and shading
-* Set ressource and Date to given parameters when
-* Validation
+* (Validation)
 * Department Filter
+* User authentication
