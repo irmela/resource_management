@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'calendar#calendar_view'
+  root 'jobs#calendar_view'
 
   resources :jobs do
     get :autocomplete_project_name, :on => :collection
