@@ -16,7 +16,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date))
   end
 
   # GET /jobs/1/edit

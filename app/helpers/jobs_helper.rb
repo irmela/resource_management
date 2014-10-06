@@ -38,7 +38,7 @@ module JobsHelper
         week.delete(week.last)
         week.delete(week.last)
     	results = week.map do |day|
-            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :date => day})
+            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day})
         	content_tag( :div, jobs_by_date(day, ressourceID).to_s + newLink.to_s, :class => "day", :id => day)
     	end
         safe_join results
