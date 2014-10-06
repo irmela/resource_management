@@ -63,7 +63,7 @@ class JobsController < ApplicationController
     end
   end
 
-  def calendar_view
+  def calendar
     @today = Date.today 
     @start_date = @today.beginning_of_week
     @week_end = @start_date + 41
