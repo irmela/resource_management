@@ -9,7 +9,7 @@ module JobsHelper
     def render_table_head
 		content_tag :tr do
 			concat content_tag( :th, "Ressource")
-			results = @date_range.each_slice(7).map do |week|
+			results = $date_range.each_slice(7).map do |week|
 				concat content_tag( :th, "KW " + week[1].cweek.to_s)
 	        end
 	        safe_join results
@@ -26,7 +26,7 @@ module JobsHelper
 	def render_weeks(ressource, ressourceID)
         content_tag :tr, :class => "ressource-row" do
             concat content_tag( :td, ressource)
-            results = @date_range.each_slice(7).map do |week|
+            results = $date_range.each_slice(7).map do |week|
     			concat content_tag( :td, render_week(week, ressourceID), :class => "week")
             end
             safe_join results
@@ -38,7 +38,7 @@ module JobsHelper
         week.delete(week.last)
         week.delete(week.last)
     	results = week.map do |day|
-            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day})
+            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day}), remote: true
         	content_tag( :div, jobs_by_date(day, ressourceID).to_s + newLink.to_s, :class => "day", :id => day)
     	end
         safe_join results
