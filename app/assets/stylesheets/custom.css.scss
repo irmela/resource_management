@@ -49,8 +49,12 @@
 }
 
 .project-list {
+	margin: 4em 0 6em 0;
 	.project {
+		margin-bottom: 1em;
 		display: inline-block;
 		margin-right: 1em;
+		font-size: 1.2em;
+		min-width: 10em;
 	}
 }

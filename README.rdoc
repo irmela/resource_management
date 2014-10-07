@@ -29,7 +29,10 @@ Please feel free to use a different markup language if you do not plan to run
 
 == TODO
 
-* Colorpicker and shading
+* (Colorpicker) and shading
 * (Validation)
 * Department Filter
 * User authentication
+* Mehrfach-Projekte (Höhe der Farbbalken austomatisch anpassen)
+* Projektbearbeitung auf Kalenderansicht
+* Wochen-Datum
