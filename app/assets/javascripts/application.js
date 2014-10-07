@@ -23,3 +23,4 @@
 //= require jquery-ui/position
 //= require jquery-ui/autocomplete
 //= require autocomplete-rails
+//= require jquery.minicolors
