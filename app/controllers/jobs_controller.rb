@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :all_jobs, only: [:index, :create, :calendar]
+  before_action :all_jobs, only: [:index, :create, :calendar, :update]
   autocomplete :project, :name, :display_value => :name_and_id
   autocomplete :ressource, :name, :display_value => :name_and_id
   respond_to :html, :js
@@ -44,6 +44,8 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+    @job.update_attributes(job_params)
+    @table = view_context.render_table
   end
 
   # DELETE /jobs/1

@@ -49,7 +49,7 @@ module JobsHelper
 	     	if date.between?(job.start_date, job.end_date) && ressourceID == job.ressource_id
 	     		projectID = job.project_id
 	     		projectColor = Project.find_by_id(projectID).color
-                editLink = link_to '', edit_job_path(job)
+                editLink = link_to '', edit_job_path(job), remote: true
 	     		content_tag( :div, editLink.to_s, :style => "background: #{projectColor};")
 	    	end
 	    end
