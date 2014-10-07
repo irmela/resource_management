@@ -2,10 +2,10 @@
 
 .color-icon {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: 1.5em;
+  height: 1.5em;
   margin-right: 0.5em;
-  vertical-align: middle;
+  vertical-align: bottom;
   @include border-radius(3px);
 }
 
@@ -45,5 +45,12 @@
 			height: 100%;
 			width: 100%;
 		}
+	}
+}
+
+.project-list {
+	.project {
+		display: inline-block;
+		margin-right: 1em;
 	}
 }

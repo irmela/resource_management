@@ -1,8 +1,8 @@
 <div class="page-header">
-  <%= link_to new_job_path, :class => 'btn btn-primary' do %>
+<!--   <% link_to new_job_path, :class => 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Job
-  <% end %>
+  <% end %> -->
   <h1>Listing jobs</h1>
 </div>
 
@@ -15,8 +15,8 @@
             <th>Start date</th>
             <th>End date</th>
             <th></th>
-        <th></th>
-        <th></th>
+<!--         <th></th>
+        <th></th> -->
       </tr>
     </thead>
 
@@ -26,8 +26,8 @@
             <td><%= Ressource.find_by_id(job.ressource_id).name %></td>
             <td><%= job.start_date %></td>
             <td><%= job.end_date %></td>
-            <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+<!--             <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td> -->
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>

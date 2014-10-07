@@ -11,6 +11,7 @@ class JobsController < ApplicationController
     @week_end = @start_date + 41
     @week_number = @today.strftime("%U").to_i
     @ressources = Ressource.all
+    @projects = Project.all
     $date_range = (@start_date..@week_end)
   end
 

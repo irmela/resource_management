@@ -7,3 +7,10 @@
 <div id="calendar">
 	<%= render_table %>
 </div>
+
+<div class="project-list">
+	<%= content_tag_for(:div, @projects) do |project| %>
+	    <span class="color-icon" style="background-color:<%= project.color %>"></span>
+	    <%= project.name %>
+	<% end %>
+</div>
