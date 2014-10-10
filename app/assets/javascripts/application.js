@@ -17,10 +17,4 @@
 //= require_tree .
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
-//= require jquery-ui/core
-//= require jquery-ui/widget
-//= require jquery-ui/mouse
-//= require jquery-ui/position
-//= require jquery-ui/autocomplete
-//= require autocomplete-rails
 //= require jquery.minicolors

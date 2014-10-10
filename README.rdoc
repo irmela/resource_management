@@ -36,3 +36,7 @@ Please feel free to use a different markup language if you do not plan to run
 * Mehrfach-Projekte (Höhe der Farbbalken austomatisch anpassen)
 * Projektbearbeitung auf Kalenderansicht
 * Wochen-Datum
+* Job-Destroy auf Kalenderansicht
+* Projekt-/Ressourcen-Name statt ID
+* evtl Date repeat (für Sprints,...) 
+* Production-Database

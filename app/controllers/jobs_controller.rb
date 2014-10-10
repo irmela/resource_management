@@ -1,8 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :all_jobs, only: [:index, :create, :calendar, :update]
-  autocomplete :project, :name, :display_value => :name_and_id
-  autocomplete :ressource, :name, :display_value => :name_and_id
   respond_to :html, :js
 
   def calendar
@@ -53,6 +51,9 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
+    respond_to do |format|
+      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+    end
   end
 
   private
