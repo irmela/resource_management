@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :all_jobs, only: [:index, :create, :calendar, :update]
+  before_action :all_jobs, only: [:index, :create, :update, :destroy]
+  before_action :set_job, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
   def calendar
@@ -55,9 +55,8 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-    end
+    # needed in update.js.erb
+    @table = view_context.render_table
   end
 
   private

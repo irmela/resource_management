@@ -20,6 +20,11 @@
 	margin: 0;
 	padding: 0;
 	text-align: center;
+	&:hover {
+		.day {
+			height: 3em;
+		}
+	}
 	.day {
 		display: inline-block;
 		vertical-align: top;
@@ -39,12 +44,25 @@
 		div {
 			line-height: 2em;
 			vertical-align: middle;
-			height: 50%;
+			//height: 50%;
 		}
 		a {
 			display: block;
 			height: 100%;
 			width: 100%;
+			text-decoration: none;
+			color: #c2c2c2;
+		}
+		a.new{
+			display: none;
+			&:after {
+				font-family: 'Glyphicons Halflings';
+				content: "\e081";
+				font-size: 0.8em;
+			}
+		}
+		&:hover a.new {
+			display: block;
 		}
 	}
 }
@@ -71,3 +89,5 @@
 .form-control {
 	max-width: 18em;
 }
+
+#new_job .delete { display: none; }

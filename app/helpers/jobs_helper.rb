@@ -40,7 +40,7 @@ module JobsHelper
         week.delete(week.last)
         week.delete(week.last)
     	results = week.map do |day|
-            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day}), remote: true
+            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day}), remote: true, :class => "new"
         	content_tag( :div, jobs_by_date(day, ressourceID).to_s + newLink.to_s, :class => "day", :id => day)
     	end
         safe_join results
@@ -52,7 +52,7 @@ module JobsHelper
 	     		projectID = job.project_id
 	     		projectColor = Project.find_by_id(projectID).color
                 editLink = link_to '', edit_job_path(job), remote: true
-	     		content_tag( :div, editLink.to_s, :style => "background: #{projectColor};")
+	     		content_tag( :div, editLink.to_s, :style => "background: #{projectColor};", :class => "job")
 	    	end
 	    end
 	    safe_join results

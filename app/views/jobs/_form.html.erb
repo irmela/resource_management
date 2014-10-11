@@ -39,6 +39,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit :class => "btn btn-primary" %>
+      <%= link_to 'Delete', @job, remote: true, method: :delete,  data: { confirm: 'Are you sure?' }, :class => "btn btn-danger delete" %>
     </div>
   </div>
 <% end %>

@@ -18,3 +18,23 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require jquery.minicolors
+
+$( document ).ready(function() {
+    setJobHeights();
+});
+setJobHeights = function () {
+	$('.day').each(function (){
+    	// set height of job depending on number of jobs
+    	var jobCount = $(this).find('.job').length;
+    	$(this).find('.job').css({'height': (1/jobCount)*100 + '%'})
+		$(this).hover(
+			function() {
+				// making room for new-link
+		    	$(this).find('.job').css({'height': (1/(jobCount + 1))*100 + '%'});
+		    	$(this).find('.new').css({'height': (1/(jobCount + 1))*100 + '%'});
+		  	}, function() {
+		    	$(this).find('.job').css({'height': (1/(jobCount))*100 + '%'})
+		  	}
+		);
+    })
+}
