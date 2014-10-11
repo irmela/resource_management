@@ -10,8 +10,8 @@ module JobsHelper
 		content_tag :tr do
 			concat content_tag( :th, "")
 			results = $date_range.each_slice(7).map do |week|
-                firstDay = week[1].strftime("%d.%m")
-                lastDay = (week[1] + 5).strftime("%d.%m")
+                firstDay = week[0].strftime("%d.%m")
+                lastDay = (week[0] + 4).strftime("%d.%m")
 				concat content_tag( :th, ("KW " + week[1].cweek.to_s + ' ').html_safe + (content_tag(:span, firstDay + '-' + lastDay, :class => "week-date")), :class => "week-label")
 	        end
 	        safe_join results
@@ -19,7 +19,7 @@ module JobsHelper
     end
 
     def render_ressources
-        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all
+        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     	results = @ressources.map do |ressource|
     		render_weeks(ressource.name, ressource.id)
     	end

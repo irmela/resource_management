@@ -18,6 +18,6 @@
 <div class="project-list">
 	<%= content_tag_for(:div, @projects) do |project| %>
 	    <span class="color-icon" style="background-color:<%= project.color %>"></span>
-	    <%= project.name %>
+	    <%= link_to project.name, edit_project_path(project) %>
 	<% end %>
 </div>
