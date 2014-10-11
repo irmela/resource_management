@@ -30,8 +30,6 @@ Please feel free to use a different markup language if you do not plan to run
 == TODO
 
 * Color-shading
-* Department Filter
 * User authentication
-* Projektbearbeitung auf Kalenderansicht
 * evtl Date repeat (für Sprints,...) 
 * Production-Database
