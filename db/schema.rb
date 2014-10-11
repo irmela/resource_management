@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916055438) do
+ActiveRecord::Schema.define(version: 20141011211533) do
 
   create_table "jobs", force: true do |t|
     t.integer  "project_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140916055438) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "status"
   end
 
   create_table "ressources", force: true do |t|
