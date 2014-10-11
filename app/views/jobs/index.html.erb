@@ -1,0 +1,33 @@
+<div class="page-header">
+<!--   <% link_to new_job_path, :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Job
+  <% end %> -->
+  <h1>Listing jobs</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Project</th>
+            <th>Ressource</th>
+            <th>Start date</th>
+            <th>End date</th>
+            <th></th>
+<!--         <th></th>
+        <th></th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @jobs) do |job| %>
+            <td><%= Project.find_by_id(job.project_id).name %></td>
+            <td><%= Ressource.find_by_id(job.ressource_id).name %></td>
+            <td><%= job.start_date %></td>
+            <td><%= job.end_date %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

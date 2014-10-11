@@ -1,0 +1,26 @@
+<div class="page-header">
+  <%= link_to jobs_path, :class => 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_job_path(@job), :class => 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show job</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Project:</dt>
+  <dd><%= Project.find_by_id(@job.project_id).name %></dd>
+
+  <dt>Ressource:</dt>
+  <dd><%= Ressource.find_by_id(@job.ressource_id).name %></dd>
+
+  <dt>Start date:</dt>
+  <dd><%= @job.start_date %></dd>
+
+  <dt>End date:</dt>
+  <dd><%= @job.end_date %></dd>
+
+</dl>

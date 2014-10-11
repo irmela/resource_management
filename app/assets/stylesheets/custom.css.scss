@@ -1,0 +1,124 @@
+@import "compass";
+
+
+a {
+	text-decoration: none;
+	color: #999;
+	&:hover {
+		color: #808080;
+	}
+}
+
+.page-header h2 {
+	display: inline-block;
+	margin: 0;
+}
+.filter-list {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	float: right;
+	li {
+		display: inline-block;
+		list-style: none;
+		a { margin-bottom: 0.2em; }
+	}
+}
+
+select {
+	border: 1px solid #cccccc;
+	width: 9em;
+}
+
+.form-control {
+	max-width: 18em;
+}
+
+#new_job .delete { display: none; }
+
+.color-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+  vertical-align: bottom;
+  @include border-radius(3px);
+  border: 1px solid #757575;
+}
+
+.week-container {
+	display: inline-block;
+	span { display: block; text-align: center; }
+	margin: .5em;
+}
+
+.week {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	&:hover {
+		.day {
+			height: 3em;
+		}
+	}
+	.day {
+		display: inline-block;
+		vertical-align: top;
+		margin: .1em 0;
+		height: 2em;
+		width: 2em;
+		border: 1px solid #c2c2c2;
+		border-left: 0;
+		text-align: center;
+		&:first-child {
+			@include border-radius(3px 0px 0px 3px);
+			border-left: 1px solid #c2c2c2;
+		}
+		&:last-child {
+			@include border-radius(0px 3px 3px 0px);
+		}
+		div {
+			line-height: 2em;
+			vertical-align: middle;
+			//height: 50%;
+		}
+		a {
+			display: block;
+			height: 100%;
+			width: 100%;
+			text-decoration: none;
+			color: #c2c2c2;
+		}
+		a.new{
+			display: none;
+			&:after {
+				font-family: 'Glyphicons Halflings';
+				content: "\e081";
+				font-size: 0.8em;
+			}
+		}
+		&:hover a.new {
+			display: block;
+		}
+	}
+}
+
+.week-label {
+	text-align: center;
+}
+.week-date {
+	display: block;
+	font-weight: normal;
+}
+
+.project-list {
+	margin: 4em 0 6em 0;
+	.project {
+		margin-bottom: 1em;
+		display: inline-block;
+		margin-right: 1em;
+		font-size: 1.2em;
+		min-width: 10em;
+	}
+}

@@ -1,0 +1,23 @@
+<div class="page-header">
+  <a href="/"><h2>Calendar</h2></a>
+  	<ul class="filter-list">
+	<% @ressource_departments.map do |dep| %>
+    	<li><%= link_to dep, calendar_path({:department => dep}), :class => "btn btn-sm btn-default" %></li>
+    <% end %>
+	<ul>
+</div>
+
+
+
+<div id="job-form" style="display:none;"></div>
+
+<div id="calendar">
+	<%= render_table %>
+</div>
+
+<div class="project-list">
+	<%= content_tag_for(:div, @projects) do |project| %>
+	    <span class="color-icon" style="background-color:<%= project.color %>"></span>
+	    <%= link_to project.name, edit_project_path(project) %>
+	<% end %>
+</div>

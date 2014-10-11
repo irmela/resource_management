@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  root 'jobs#calendar', :as => "calendar"
+
+  resources :jobs
+
+  resources :projects
+
+  resources :ressources
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
