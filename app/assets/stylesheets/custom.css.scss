@@ -19,6 +19,7 @@
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	text-align: center;
 	.day {
 		display: inline-block;
 		vertical-align: top;
@@ -46,6 +47,14 @@
 			width: 100%;
 		}
 	}
+}
+
+.week-label {
+	text-align: center;
+}
+.week-date {
+	display: block;
+	font-weight: normal;
 }
 
 .project-list {
