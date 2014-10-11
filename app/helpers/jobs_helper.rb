@@ -19,7 +19,8 @@ module JobsHelper
     end
 
     def render_ressources
-    	results = Ressource.all.map do |ressource|
+        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all
+    	results = @ressources.map do |ressource|
     		render_weeks(ressource.name, ressource.id)
     	end
     	safe_join results

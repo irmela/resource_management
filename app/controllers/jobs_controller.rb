@@ -7,10 +7,9 @@ class JobsController < ApplicationController
     @today = Date.today 
     @start_date = @today.beginning_of_week
     @week_end = @start_date + 41
-    @week_number = @today.strftime("%U").to_i
-    @ressources = Ressource.all
-    @projects = Project.all
     $date_range = (@start_date..@week_end)
+    @ressource_departments = Ressource.uniq.pluck(:department)
+    @projects = Project.all
   end
 
   # GET /jobs

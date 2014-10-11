@@ -26,8 +26,6 @@
             <td><%= Ressource.find_by_id(job.ressource_id).name %></td>
             <td><%= job.start_date %></td>
             <td><%= job.end_date %></td>
-<!--             <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td> -->
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
