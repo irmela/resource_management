@@ -19,7 +19,7 @@ module JobsHelper
     end
 
     def render_ressources
-        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all
+        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     	results = @ressources.map do |ressource|
     		render_weeks(ressource.name, ressource.id)
     	end
