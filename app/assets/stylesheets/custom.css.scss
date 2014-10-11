@@ -1,5 +1,41 @@
 @import "compass";
 
+
+a {
+	text-decoration: none;
+	color: #999;
+	&:hover {
+		color: #808080;
+	}
+}
+
+.page-header h2 {
+	display: inline-block;
+	margin: 0;
+}
+.filter-list {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	float: right;
+	li {
+		display: inline-block;
+		list-style: none;
+		a { margin-bottom: 0.2em; }
+	}
+}
+
+select {
+	border: 1px solid #cccccc;
+	width: 9em;
+}
+
+.form-control {
+	max-width: 18em;
+}
+
+#new_job .delete { display: none; }
+
 .color-icon {
   display: inline-block;
   width: 1.5em;
@@ -86,9 +122,3 @@
 		min-width: 10em;
 	}
 }
-
-.form-control {
-	max-width: 18em;
-}
-
-#new_job .delete { display: none; }
