@@ -27,6 +27,8 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date))
+    # needed in new.js.erb
+    @ressource_id = params[:ressource_id]
   end
 
   # GET /jobs/1/edit
@@ -37,6 +39,7 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.create(job_params)
+    # needed in new.js.erb
     @table = view_context.render_table
   end
 
@@ -44,6 +47,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1.json
   def update
     @job.update_attributes(job_params)
+    # needed in update.js.erb
     @table = view_context.render_table
   end
 
