@@ -4,10 +4,9 @@ class JobsController < ApplicationController
   respond_to :html, :js
 
   def calendar
-    @today = Date.today 
-    @start_date = @today.beginning_of_week
-    @week_end = @start_date + 41
-    $date_range = (@start_date..@week_end)
+    @week_start = params[:cal_start] ? DateTime.parse(params[:cal_start]).beginning_of_week : Date.today.beginning_of_week
+    week_end = @week_start + 41
+    $date_range = (@week_start..week_end)
     @ressource_departments = Ressource.uniq.pluck(:department)
     @projects = Project.all
   end
@@ -66,7 +65,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date)
+      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :cal_start)
     end
 
     def all_jobs

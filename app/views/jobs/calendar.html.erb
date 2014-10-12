@@ -1,10 +1,15 @@
 <div class="page-header">
   <a href="/"><h2>Calendar</h2></a>
   	<ul class="filter-list">
-	<% @ressource_departments.map do |dep| %>
-    	<li><%= link_to dep, calendar_path({:department => dep}), :class => "btn btn-sm btn-default" %></li>
-    <% end %>
-	<ul>
+		<% @ressource_departments.map do |dep| %>
+	    	<li><%= link_to dep.upcase, params.merge({:department => dep}), :class => "btn btn-sm btn-default" %></li>
+	    <% end %>
+	</ul>
+	<ul class="pager-list">
+		<%= previous_week %>
+		<%= current_week %>
+		<%= next_week %>
+	</ul>
 </div>
 
 
