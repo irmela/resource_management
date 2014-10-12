@@ -9,20 +9,29 @@ a {
 	}
 }
 
-.page-header h2 {
-	display: inline-block;
-	margin: 0;
+.page-header {
+	position: relative;
+	> a { display: block; }
+	h2 {
+		margin: 0;
+		text-align: center;
+	}
 }
-.filter-list {
-	margin: 0;
+.filter-list, .pager-list {
 	padding: 0;
-	display: inline-block;
-	float: right;
+	margin: 0;
+	position: absolute;
+	bottom: 8px;
 	li {
 		display: inline-block;
-		list-style: none;
-		a { margin-bottom: 0.2em; }
+		margin: 0;
 	}
+}
+.filter-list {
+	left: 0;
+}
+.pager-list {
+	right: 0;
 }
 
 select {
