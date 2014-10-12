@@ -17,10 +17,10 @@ module JobsHelper
         end
     end
 
-	def render_table
+	def render_table(ressources)
 		content_tag :table, :class => "table" do
         	concat content_tag( :thead, render_table_head)
-			concat content_tag( :tbody, render_ressources)
+			concat content_tag( :tbody, render_ressources(ressources))
 		end
     end
 
@@ -36,9 +36,8 @@ module JobsHelper
 	    end
     end
 
-    def render_ressources
-        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
-    	results = @ressources.map do |ressource|
+    def render_ressources(ressources)
+    	results = ressources.map do |ressource|
     		render_weeks(ressource.name, ressource.id)
     	end
     	safe_join results
