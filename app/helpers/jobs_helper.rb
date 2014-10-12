@@ -1,8 +1,26 @@
 module JobsHelper
-	def render_table
+    def previous_week
+        content_tag :li, :class => "pager pager-prev" do
+            link_to "Prev", params.merge(:cal_start => (@week_start - 7).strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+        end
+    end
+
+    def current_week
+        content_tag :li, :class => "pager pager-current" do
+            link_to "Today", params.merge(:cal_start =>  Date.today.beginning_of_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+        end
+    end
+
+    def next_week
+        content_tag :li, :class => "pager pager-next" do
+            link_to "Next", params.merge(:cal_start => @week_start.next_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+        end
+    end
+
+	def render_table(ressources)
 		content_tag :table, :class => "table" do
         	concat content_tag( :thead, render_table_head)
-			concat content_tag( :tbody, render_ressources)
+			concat content_tag( :tbody, render_ressources(ressources))
 		end
     end
 
@@ -18,9 +36,8 @@ module JobsHelper
 	    end
     end
 
-    def render_ressources
-        @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
-    	results = @ressources.map do |ressource|
+    def render_ressources(ressources)
+    	results = ressources.map do |ressource|
     		render_weeks(ressource.name, ressource.id)
     	end
     	safe_join results
@@ -41,7 +58,7 @@ module JobsHelper
         week.delete(week.last)
         week.delete(week.last)
     	results = week.map do |day|
-            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day, :end_date => day}), remote: true, :class => "new"
+            newLink = link_to '', new_job_path({:ressource_id => ressourceID, :start_date => day.strftime("%Y-%m-%d"), :end_date => day.strftime("%Y-%m-%d")}), remote: true, :class => "new"
         	content_tag( :div, jobs_by_date(day, ressourceID).to_s + newLink.to_s, :class => "day", :id => day)
     	end
         safe_join results

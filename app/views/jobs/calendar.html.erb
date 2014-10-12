@@ -1,10 +1,15 @@
 <div class="page-header">
   <a href="/"><h2>Calendar</h2></a>
   	<ul class="filter-list">
-	<% @ressource_departments.map do |dep| %>
-    	<li><%= link_to dep, calendar_path({:department => dep}), :class => "btn btn-sm btn-default" %></li>
-    <% end %>
-	<ul>
+		<% @ressource_departments.map do |dep| %>
+	    	<li><%= link_to dep.upcase, params.merge({:department => dep}), :class => "btn btn-sm btn-default" %></li>
+	    <% end %>
+	</ul>
+	<ul class="pager-list">
+		<%= previous_week %>
+		<%= current_week %>
+		<%= next_week %>
+	</ul>
 </div>
 
 
@@ -12,11 +17,11 @@
 <div id="job-form" style="display:none;"></div>
 
 <div id="calendar">
-	<%= render_table %>
+	<%= render_table($ressources) %>
 </div>
 
 <div class="project-list">
-	<%= content_tag_for(:div, @projects) do |project| %>
+	<%= content_tag_for(:div, @projects.where(status: true).order('name')) do |project| %>
 	    <span class="color-icon" style="background-color:<%= project.color %>"></span>
 	    <%= link_to project.name, edit_project_path(project) %>
 	<% end %>
