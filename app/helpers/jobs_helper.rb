@@ -20,7 +20,7 @@ module JobsHelper
 	def render_table(ressources)
 		content_tag :table, :class => "table" do
         	concat content_tag( :thead, render_table_head)
-			concat content_tag( :tbody, render_ressources(ressources))
+			concat content_tag( :tbody, render_ressources(ressources)) unless ressources.empty?
 		end
     end
 
