@@ -1,35 +1,35 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 4 ressource management / calendar application
 
-Things you may want to cover:
+### System dependencies
+* Ruby 2.0.0p481
+* Rails 4.1.5
 
-* Ruby version
+### Configuration
+* Install gems: +bundle install+
 
-* System dependencies
+### Database setup
+* Setup database and import dummy content from seeds.rb: +bundle exec rake db:migrate+
 
-* Configuration
+### Deployment instructions
+* Install gems: +bundle install --deployment --without development+
+* Setup database: +bundle exec rake db:setup RAILS_ENV=production+
+* Import dummy data +bundle exec rake db:seed RAILS_ENV=production+ 
+* +bundle exec rake assets:precompile RAILS_ENV=production+
 
-* Database creation
+### Production Server
+* edit thin-config.yml
+* +bundle exec thin {start|stop|restart} -C config/thin-config.yml+
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
 
 == TODO
 
-* Color-shading
+* Color-shading for project colors
 * User authentication
-* evtl Date repeat (für Sprints,...) 
-* Production-Database
+* Date repeat
+* Some projects should have multiple departments
+* Making ressource and project name unique
+* Adding reccource and project initials
+* Show project name on hover
+* Delete job when its project or ressource gets deleted
