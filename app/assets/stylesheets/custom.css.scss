@@ -69,6 +69,7 @@ select {
 	&:hover {
 		.day {
 			height: 3em;
+			overflow: hidden;
 		}
 	}
 	.day {
@@ -90,7 +91,6 @@ select {
 		div {
 			line-height: 2em;
 			vertical-align: middle;
-			//height: 50%;
 		}
 		a {
 			display: block;
@@ -109,6 +109,9 @@ select {
 		}
 		&:hover a.new {
 			display: block;
+		}
+		.job {
+			@include transition (height .2s ease-out);
 		}
 	}
 }
