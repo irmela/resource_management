@@ -7,7 +7,7 @@ module JobsHelper
 
     def current_week
         content_tag :li, :class => "pager pager-current" do
-            link_to "Today", params.merge(:cal_start =>  Date.today.beginning_of_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+            link_to "Now", params.merge(:cal_start =>  Date.today.beginning_of_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
         end
     end
 
