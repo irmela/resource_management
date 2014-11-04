@@ -9,7 +9,7 @@ class JobsController < ApplicationController
     $date_range = (@week_start..week_end)
     $ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     @ressource_departments = Ressource.uniq.pluck(:department).sort
-    @projects = Project.all
+    @projects = params[:department] ? Project.where(department: params[:department]) : Project.all.order('department')
   end
 
   # GET /jobs
