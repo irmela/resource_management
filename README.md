@@ -33,4 +33,4 @@ Rails 4 ressource management / calendar application
 * Making ressource and project name unique
 * Adding reccource and project initials
 * Show project name on hover
-* Delete job when its project or ressource gets deleted
+* <strike>Delete job when its project or ressource gets deleted</strike>
