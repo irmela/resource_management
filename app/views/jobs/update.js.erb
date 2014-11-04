@@ -1,3 +1,4 @@
-$('#calendar').html("<%= j @table %>");
+//$('#calendar').html("<%= j @table %>");
+$('#calendar .table-body').html("<%= j render(:partial => 'calendars/table_body') %>");
 setJobHeights();
 $('#job-form').slideUp(350);

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'jobs#calendar', :as => "calendar"
+  #get 'calendars/show'
+
+  root 'calendars#show', :as => "calendar"
 
   resources :jobs
 

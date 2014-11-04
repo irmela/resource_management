@@ -1,0 +1,18 @@
+<tbody class="table-body">
+	<% @ressources.each do |ressource| %>
+		<tr class="ressource-row">
+			<td><%= ressource.name %></td>
+			<% @calendar.weeks.each do |week| %>
+				<% week.delete(week.last); week.delete(week.last) %>
+				<td class="week">
+					<% week.each do |day| %>
+						<div class="day">
+							<% jobs_by_date(day, ressource.id) %>
+							<%= new_job(day, ressource.id) %>
+						</div>
+					<% end %>
+				</td>
+			<% end  %>
+		</tr>
+	<% end %>
+</tbody>
