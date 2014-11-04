@@ -1,8 +1,8 @@
 <tbody class="table-body">
-	<% @ressources.each do |ressource| %>
+	<% $ressources.each do |ressource| %>
 		<tr class="ressource-row">
 			<td><%= ressource.name %></td>
-			<% @calendar.weeks.each do |week| %>
+			<% $calendar.weeks.each do |week| %>
 				<% week.delete(week.last); week.delete(week.last) %>
 				<td class="week">
 					<% week.each do |day| %>
