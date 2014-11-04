@@ -33,4 +33,13 @@ module CalendarsHelper
 	    	end
 	    end
     end
+
+    def projects_by_ressources
+        @projects_by_ressources = []
+        if params[:department] && params[:department] != 'pm'
+            @projects_by_ressources.push(params[:department], 'allg')    
+        else
+            @projects_by_ressources = Project.uniq.pluck(:department).map
+        end
+    end
 end
