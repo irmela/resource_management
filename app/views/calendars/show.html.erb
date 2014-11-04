@@ -22,7 +22,7 @@
 </div>
 
 <div class="project-list">
-	<%= content_tag_for(:div, Project.all.where(status: true).order('name')) do |project| %>
+	<%= content_tag_for(:div, Project.all.where("status = ? AND department IN (?)", true, projects_by_ressources).order('name')) do |project| %>
 	    <span class="color-icon" style="background-color:<%= project.color %>"></span>
 	    <%= link_to project.name, edit_project_path(project) %>
 	<% end %>
