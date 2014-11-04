@@ -2,7 +2,7 @@ module CalendarsHelper
 
 	def previous_week
         content_tag :li, :class => "pager pager-prev" do
-            link_to "Prev", params.merge(:cal_start => (@week_start - 7).strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+            link_to "Prev", params.merge(:cal_start => ($calendar.first_day - 7).strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
         end
     end
 
@@ -14,7 +14,7 @@ module CalendarsHelper
 
     def next_week
         content_tag :li, :class => "pager pager-next" do
-            link_to "Next", params.merge(:cal_start => @week_start.next_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
+            link_to "Next", params.merge(:cal_start => $calendar.first_day.next_week.strftime("%Y-%m-%d")), :class => "btn btn-sm btn-default"
         end
     end
 

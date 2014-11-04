@@ -3,9 +3,9 @@
 		<tr class="ressource-row">
 			<td><%= ressource.name %></td>
 			<% $calendar.weeks.each do |week| %>
-				<% week.delete(week.last); week.delete(week.last) %>
+				<% work_days = week[0]..week[4] %>
 				<td class="week">
-					<% week.each do |day| %>
+					<% work_days.each do |day| %>
 						<div class="day">
 							<% jobs_by_date(day, ressource.id) %>
 							<%= new_job(day, ressource.id) %>

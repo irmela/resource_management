@@ -1,14 +1,24 @@
 class Calendar
 	
 	def initialize(params = {})
-		@week_start = params[:cal_start] ? DateTime.parse(params[:cal_start]).beginning_of_week : Date.today.beginning_of_week
-  		@week_end = @week_start + 41
-  		$ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
+		@params = params
+	end
+
+	def first_day
+		params[:cal_start] ? DateTime.parse(params[:cal_start]).beginning_of_week : Date.today.beginning_of_week
+	end
+
+	def last_day
+		self.first_day + 41
 	end
 
 	def weeks
-		(@week_start..@week_end).each_slice(7).map do |week| 
+		(first_day..last_day).each_slice(7).map do |week| 
 			week
 		end
+	end
+
+	def params
+	   @params
 	end
 end
