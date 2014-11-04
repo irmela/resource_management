@@ -73,7 +73,8 @@ select {
 		}
 	}
 	.day {
-		display: inline-block;
+		//display: inline-block;
+		float: left;
 		vertical-align: top;
 		margin: .1em 0;
 		height: 2em;

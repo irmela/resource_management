@@ -1,0 +1,8 @@
+<thead class="table-head">
+	<tr>
+		<th>Ressources</th>
+	  	<% $calendar.weeks.map do |week| %>
+			<th><%= week[0].strftime("%d.%m") + '-' + (week[0] + 4).strftime("%d.%m") %></th>
+		<% end  %>
+	</tr>
+</thead>
