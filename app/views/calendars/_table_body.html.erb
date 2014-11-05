@@ -7,7 +7,14 @@
 				<td class="week">
 					<% work_days.each do |day| %>
 						<div class="day">
-							<% jobs_by_date(day, ressource.id) %>
+							<%# jobs_by_date(day, ressource.id) %>
+							<% Job.all.each do |job| %>
+								<% if day.between?(job.start_date, job.end_date) && ressource.id == job.ressource_id %>
+ 									<div class="job" style="background:<%= Project.find_by_id(job.project_id).color %>;">
+										<%= link_to '', edit_job_path(job), title: job.project.name, remote: true %>
+									</div>
+								<% end %>
+							<% end %>
 							<%= new_job(day, ressource.id) %>
 						</div>
 					<% end %>
