@@ -29,18 +29,21 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.create(job_params)
+    initialize_calendar
   end
 
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
     @job.update_attributes(job_params)
+    initialize_calendar
   end
 
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
+    initialize_calendar
   end
 
   private
@@ -56,5 +59,10 @@ class JobsController < ApplicationController
 
     def all_jobs
       @jobs = Job.all
+    end
+
+    def initialize_calendar
+      @calendar = Calendar.new(params)
+      @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     end
 end
