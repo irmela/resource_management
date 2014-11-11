@@ -1,4 +1,4 @@
-== README
+# README
 
 Rails 4 ressource management / calendar application
 
@@ -16,7 +16,7 @@ Rails 4 ressource management / calendar application
 ### Deployment instructions
 * Install gems: `bundle install --deployment --without development`
 * Setup database: `bundle exec rake db:setup RAILS_ENV=production`
-* Import dummy data `bundle exec rake db:seed RAILS_ENV=production` 
+* Import dummy data `bundle exec rake db:seed RAILS_ENV=production`
 * `bundle exec rake assets:precompile RAILS_ENV=production`
 
 ### Production Server
@@ -24,7 +24,7 @@ Rails 4 ressource management / calendar application
 * `bundle exec thin {start|stop|restart} -C config/thin-config.yml`
 
 
-== TODO
+## TODO
 
 * Color-shading for project colors
 * User authentication
@@ -32,5 +32,5 @@ Rails 4 ressource management / calendar application
 * Some projects should have multiple departments
 * Making ressource and project name unique
 * Adding reccource and project initials
-* Show project name on hover
-* <strike>Delete job when its project or ressource gets deleted</strike>
+* <s>Show project name on hover</s>
+* <s>Delete job when its project or ressource gets deleted</s>
