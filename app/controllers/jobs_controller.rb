@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  #before_action :initialize_calendar, only: [:edit, :update, :destroy]
-  before_action :all_jobs, only: [:index, :create, :update, :destroy]
+
+  before_action :all_jobs, only: [:index, :create, :update]
   before_action :set_job, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
@@ -24,7 +24,6 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    @p = params[:department]
   end
 
   # POST /jobs
@@ -44,8 +43,9 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+    @calendar = Calendar.new(params.permit(:department, :cal_start))
+    @ressources = params[:department] != '' ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     @job.destroy
-    initialize_calendar
   end
 
   private
@@ -64,7 +64,7 @@ class JobsController < ApplicationController
     end
 
     def initialize_calendar
-      @calendar = Calendar.new(job_params.permit(:department, :cal_start))
-      @ressources = job_params[:department] ? Ressource.where(department: job_params[:department]) : Ressource.all.order('department')
+      @calendar = Calendar.new(params.permit(:department, :cal_start))
+      @ressources = job_params[:department] != '' ? Ressource.where(department: job_params[:department]) : Ressource.all.order('department')
     end
 end

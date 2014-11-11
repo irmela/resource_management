@@ -19,7 +19,7 @@ module CalendarsHelper
 	end
 
 	def new_job(date, ressourceID)
-		link_to '', new_job_path({:ressource_id => ressourceID, :start_date => date.strftime("%Y-%m-%d"), :end_date => date.strftime("%Y-%m-%d")}), remote: true, :class => "new"
+		link_to '', new_job_path({:ressource_id => ressourceID, :start_date => date.strftime("%Y-%m-%d"), :end_date => date.strftime("%Y-%m-%d"), :department => params[:department], :cal_start => params[:cal_start]}), remote: true, :class => "new"
 	end
 
 	def projects_by_ressources
