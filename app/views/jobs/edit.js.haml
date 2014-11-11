@@ -1,5 +1,9 @@
 $('#job-form').html("#{j (render 'edit_form')}");
-$('#job-form').slideDown(350);
+$('#job-form').slideDown(350, function(){
+positionTooltips()
+});
 $('#close').click(function(){
-$('#job-form').slideUp(350);
+$('#job-form').slideUp(350, function(){
+positionTooltips()
+});
 })
