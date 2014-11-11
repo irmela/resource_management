@@ -43,6 +43,10 @@ select {
 	max-width: 18em;
 }
 
+.form-actions {
+	padding: 0 5px;
+}
+
 #new_job .delete { display: none; }
 
 .color-icon {
@@ -73,7 +77,6 @@ select {
 		}
 	}
 	.day {
-		//display: inline-block;
 		float: left;
 		vertical-align: top;
 		margin: .1em 0;
@@ -110,6 +113,32 @@ select {
 		}
 		&:hover a.new {
 			display: block;
+		}
+		.tooltip {
+			background: rgb(40,40,40);
+			background: rgba(40,40,40,0.8);
+			color: #ffffff;
+			@include border-radius(3px);
+			padding: 0.2em 0.5em;
+			display: none;
+			opacity: 1;
+			&:after {
+				content: " ";
+				height: 0;
+				width: 0;
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				pointer-events: none;
+				border: solid transparent;
+				border-top-color: rgb(40,40,40);
+				border-top-color: rgba(40,40,40,0.8);
+				border-width: 5px;
+				margin-left: -5px;
+			}
+			&.display-tooltip {
+				display: block;
+			}
 		}
 		.job {
 			@include transition (height .2s ease-out);

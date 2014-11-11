@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
-  before_action :all_jobs, only: [:index, :create, :update, :destroy]
+
+  before_action :all_jobs, only: [:index, :create, :update]
   before_action :set_job, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
@@ -28,22 +29,23 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.create(job_params)
+    @job = Job.create(job_params.except(:department, :cal_start))
     initialize_calendar
   end
 
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
-    @job.update_attributes(job_params)
+    @job.update_attributes(job_params.except(:department, :cal_start))
     initialize_calendar
   end
 
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
+    @calendar = Calendar.new(params.permit(:department, :cal_start))
+    @ressources = params[:department] != '' ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     @job.destroy
-    initialize_calendar
   end
 
   private
@@ -54,7 +56,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :cal_start)
+      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :cal_start, :department)
     end
 
     def all_jobs
@@ -62,7 +64,7 @@ class JobsController < ApplicationController
     end
 
     def initialize_calendar
-      @calendar = Calendar.new(params)
-      @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
+      @calendar = Calendar.new(params.permit(:department, :cal_start))
+      @ressources = job_params[:department] != '' ? Ressource.where(department: job_params[:department]) : Ressource.all.order('department')
     end
 end
