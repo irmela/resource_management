@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_filter :initialize_calendar, only: [:edit, :update, :destroy]
+  #before_action :initialize_calendar, only: [:edit, :update, :destroy]
   before_action :all_jobs, only: [:index, :create, :update, :destroy]
   before_action :set_job, only: [:edit, :update, :destroy]
   respond_to :html, :js
@@ -30,19 +30,22 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.create(job_params)
+    @job = Job.create(job_params.except(:department, :cal_start))
+    initialize_calendar
   end
 
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
-    @job.update_attributes(job_params)
+    @job.update_attributes(job_params.except(:department, :cal_start))
+    initialize_calendar
   end
 
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
+    initialize_calendar
   end
 
   private
@@ -61,11 +64,7 @@ class JobsController < ApplicationController
     end
 
     def initialize_calendar
-      @calendar = Calendar.new(params)
-      @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
-    end
-
-    def set_custom_param
-      @param = params[:department]
+      @calendar = Calendar.new(job_params.permit(:department, :cal_start))
+      @ressources = job_params[:department] ? Ressource.where(department: job_params[:department]) : Ressource.all.order('department')
     end
 end

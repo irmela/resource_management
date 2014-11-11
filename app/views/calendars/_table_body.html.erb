@@ -10,7 +10,7 @@
 							<% Job.all.each do |job| %>
 								<% if day.between?(job.start_date, job.end_date) && ressource.id == job.ressource_id %>
  									<div class="job" style="background:<%= Project.find_by_id(job.project_id).color %>;">
-										<%= link_to '', edit_job_path(job, :department => params[:department]), remote: true %>
+										<%= link_to '', edit_job_path(job, :department => params[:department], :cal_start => params[:cal_start]), remote: true %>
 									</div>
 									<div class="tooltip"><%= job.project.name %></div>
 								<% end %>
