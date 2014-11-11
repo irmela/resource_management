@@ -1,0 +1,11 @@
+= form_for(@job, :url => jobs_path(:department => params[:department], :cal_start => params[:cal_start]), remote: true, :html => { :class => "form-horizontal" }) do |f|
+  - if @job.errors.any?
+    .alert.alert-danger.alert-dismissable
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %h4
+        = pluralize(@job.errors.count, "error")
+        prohibited this job from being saved:
+      %ul
+        - @job.errors.full_messages.each do |msg|
+          %li= msg
+  = render partial: 'form_fields', locals: { f: f }

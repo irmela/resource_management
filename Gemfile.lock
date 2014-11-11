@@ -63,6 +63,8 @@ GEM
     eventmachine (1.0.3)
     execjs (2.2.1)
     fssm (0.2.10)
+    haml (4.1.0.beta.1)
+      tilt
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.2)
@@ -278,6 +280,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   capybara
   compass-rails
+  haml
   jbuilder (~> 2.0)
   jquery-minicolors-rails
   jquery-rails
