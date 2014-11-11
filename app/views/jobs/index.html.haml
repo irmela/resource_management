@@ -1,0 +1,26 @@
+.page-header
+  /
+    <haml:silent> link_to new_job_path, :class =&amp;gt; &amp;#39;btn btn-primary&amp;#39; do </haml:silent><haml:block>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Job
+    </haml:block>
+  %h1 Listing jobs
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Project
+        %th Ressource
+        %th Start date
+        %th End date
+        %th
+        /
+          <th></th>
+          <th></th>
+    %tbody
+      = content_tag_for(:tr, @jobs) do |job|
+        %td= Project.find_by_id(job.project_id).name
+        %td= Ressource.find_by_id(job.ressource_id).name
+        %td= job.start_date
+        %td= job.end_date
+        %td= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }

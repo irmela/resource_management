@@ -1,0 +1,25 @@
+.page-header
+  = link_to new_ressource_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Ressource
+  %h1 Listing ressources
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Department
+        %th Color
+        %th
+        %th
+        %th
+    %tbody
+      = content_tag_for(:tr, @ressources) do |ressource|
+        %td= ressource.name
+        %td= ressource.department
+        %td
+          %span.color-icon{:style => "background-color:#{ressource.color}"}
+          = ressource.color
+        %td= link_to 'Show', ressource
+        %td= link_to 'Edit', edit_ressource_path(ressource)
+        %td= link_to 'Destroy', ressource, method: :delete, data: { confirm: 'Are you sure?' }

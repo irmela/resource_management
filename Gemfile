@@ -17,6 +17,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+# Use haml
+gem 'haml'
 
 # Making bootstrap available
 gem 'bootstrap-generators', '~> 3.1.1'
@@ -31,7 +33,7 @@ gem 'thin'
 gem 'seed_dump'
 
 group :development do
-	# Capybara helps you test web applications by simulating how a real user would interact with your app. 
+	# Capybara helps you test web applications by simulating how a real user would interact with your app.
 	gem 'capybara'
 	# testing framework for Rails 3.x and 4.x.
 	gem 'rspec-rails'

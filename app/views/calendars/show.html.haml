@@ -1,0 +1,19 @@
+.page-header
+  %a{:href => "/"}/
+  %h2 Calendar
+  %ul.filter-list
+    - Ressource.uniq.pluck(:department).sort.map do |dep|
+      %li= link_to dep.upcase, params.merge({:department => dep}), :class => "btn btn-sm btn-default"
+  %ul.pager-list
+    = previous_week
+    = current_week
+    = next_week
+#job-form{:style => "display:none;"}
+#calendar
+  %table.table
+    = render 'table_head'
+    = render 'table_body'
+.project-list
+  = content_tag_for(:div, Project.all.where("status = ? AND department IN (?)", true, projects_by_ressources).order('name')) do |project|
+    %span.color-icon{:style => "background-color:#{project.color}"}
+    = link_to project.name, edit_project_path(project)

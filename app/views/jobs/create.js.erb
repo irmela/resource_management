@@ -1,7 +1,0 @@
-$('#calendar .table-body').replaceWith("<%= j render(:partial => 'calendars/table_body') %>");
-$('#job-form').slideUp(350, function(){
-  setJobHeights()
-  setTimeout(function(){
-    positionTooltips()
-  }, 500)
-});
