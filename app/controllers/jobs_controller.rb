@@ -44,7 +44,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @calendar = Calendar.new(params.permit(:department, :cal_start))
-    @ressources = params[:department] != '' ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
+    @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
     @job.destroy
   end
 
