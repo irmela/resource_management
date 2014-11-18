@@ -21,6 +21,10 @@ a {
 	width: 100%;
 }
 
+#job-form {
+	overflow: hidden;
+}
+
 .filter-list, .pager-list {
 	padding: 0;
 	margin: 0;
@@ -146,6 +150,10 @@ select {
 		}
 		.job {
 			@include transition (height .2s ease-out);
+			border-top: 1px solid white;
+			&:first-child {
+				border-top: none;
+			}
 		}
 	}
 }
