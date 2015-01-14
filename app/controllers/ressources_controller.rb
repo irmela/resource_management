@@ -28,7 +28,7 @@ class RessourcesController < ApplicationController
 
     respond_to do |format|
       if @ressource.save
-        format.html { redirect_to @ressource, notice: 'Ressource was successfully created.' }
+        format.html { redirect_to ressources_path, notice: 'Ressource was successfully created.' }
       else
         format.html { render :new }
       end
@@ -40,7 +40,7 @@ class RessourcesController < ApplicationController
   def update
     respond_to do |format|
       if @ressource.update(ressource_params)
-        format.html { redirect_to @ressource, notice: 'Ressource was successfully updated.' }
+        format.html { redirect_to ressources_path, notice: 'Ressource was successfully updated.' }
       else
         format.html { render :edit }
       end
