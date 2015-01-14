@@ -29,10 +29,8 @@ class RessourcesController < ApplicationController
     respond_to do |format|
       if @ressource.save
         format.html { redirect_to @ressource, notice: 'Ressource was successfully created.' }
-        format.json { render :show, status: :created, location: @ressource }
       else
         format.html { render :new }
-        format.json { render json: @ressource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class RessourcesController < ApplicationController
     respond_to do |format|
       if @ressource.update(ressource_params)
         format.html { redirect_to @ressource, notice: 'Ressource was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ressource }
       else
         format.html { render :edit }
-        format.json { render json: @ressource.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class RessourcesController < ApplicationController
     @ressource.destroy
     respond_to do |format|
       format.html { redirect_to ressources_url, notice: 'Ressource was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
