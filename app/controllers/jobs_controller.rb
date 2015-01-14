@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date))
+    @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date, :description))
     # needed in new.js.erb
     @ressource_id = params[:ressource_id]
   end
@@ -44,7 +44,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @calendar = Calendar.new(params.permit(:department, :cal_start))
-    @ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
+    @ressources = params[:department] ? Ressource.with_department(params[:department]) : Ressource.ordered_by_department
     @job.destroy
   end
 
@@ -56,7 +56,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :cal_start, :department)
+      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :description, :cal_start, :department)
     end
 
     def all_jobs
@@ -65,6 +65,6 @@ class JobsController < ApplicationController
 
     def initialize_calendar
       @calendar = Calendar.new(params.permit(:department, :cal_start))
-      @ressources = job_params[:department] != '' ? Ressource.where(department: job_params[:department]) : Ressource.all.order('department')
+      @ressources = job_params[:department] != '' ? Ressource.with_department(job_params[:department]) : Ressource.ordered_by_department
     end
 end

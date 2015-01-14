@@ -28,6 +28,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'jquery-minicolors-rails'
 
+gem 'tipsy-rails'
+
 gem 'thin'
 
 gem 'seed_dump'

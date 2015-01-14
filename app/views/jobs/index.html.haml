@@ -13,6 +13,7 @@
         %th Ressource
         %th Start date
         %th End date
+        %th Description
         %th
         /
           <th></th>
@@ -23,4 +24,5 @@
         %td= Ressource.find_by_id(job.ressource_id).name
         %td= job.start_date
         %td= job.end_date
+        %td= job.description
         %td= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }

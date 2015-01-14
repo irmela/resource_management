@@ -18,6 +18,7 @@
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require jquery.minicolors
+//= require tipsy
 
 var setJobHeights;
 
