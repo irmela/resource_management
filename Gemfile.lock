@@ -154,6 +154,9 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tipsy-rails (1.0.5)
+      railties (>= 3.0)
+      sass-rails
     treetop (1.4.15)
       polyglot
       polyglot
@@ -292,5 +295,6 @@ DEPENDENCIES
   seed_dump
   sqlite3
   thin
+  tipsy-rails
   turbolinks
   uglifier (>= 1.3.0)
