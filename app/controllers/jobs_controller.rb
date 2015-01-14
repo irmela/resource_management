@@ -17,7 +17,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date))
+    @job = Job.new(params.permit(:project_id, :ressource_id, :start_date, :end_date, :description))
     # needed in new.js.erb
     @ressource_id = params[:ressource_id]
   end
@@ -56,7 +56,7 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :cal_start, :department)
+      params.require(:job).permit(:project_id, :ressource_id, :start_date, :end_date, :description, :cal_start, :department)
     end
 
     def all_jobs

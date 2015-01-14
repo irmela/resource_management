@@ -14,6 +14,10 @@
   = f.label :end_date, :class => "col-sm-2 control-label"
   .col-sm-10
     = f.text_field :end_date, 'data-provide' => 'datepicker', :class => "form-control"
+.form-group
+  = f.label :description, :class => "col-sm-2 control-label"
+  .col-sm-10
+    = f.text_field :description, :class => "form-control"
 .col-sm-offset-2.col-sm-2.form-actions
   = f.hidden_field :department, :value => params[:department]
   = f.hidden_field :cal_start, :value => params[:cal_start]
