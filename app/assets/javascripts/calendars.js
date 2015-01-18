@@ -3,3 +3,12 @@
 $(document).ready(function() {
   $('#calendar a').tipsy();
 });
+
+$(document).on("page:load", function(e) {
+  $('#calendar a').tipsy();
+});
+
+$(window).resize(function() {
+  $('#calendar a').tipsy();
+});
+
