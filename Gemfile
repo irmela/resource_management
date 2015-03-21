@@ -34,6 +34,8 @@ gem 'thin'
 
 gem 'seed_dump'
 
+gem 'holidays'
+
 group :development do
 	# Capybara helps you test web applications by simulating how a real user would interact with your app.
 	gem 'capybara'

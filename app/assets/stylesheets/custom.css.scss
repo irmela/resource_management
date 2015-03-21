@@ -150,3 +150,10 @@ select {
 		min-width: 10em;
 	}
 }
+
+.glyphicons-lock:after {
+	font-family: 'Glyphicons Halflings';
+	content: "\E033";
+	font-size: 0.9em;
+	color: #999;
+}
