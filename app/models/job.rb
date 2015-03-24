@@ -7,6 +7,8 @@ class Job < ActiveRecord::Base
 	validates :start_date, presence: true
 	validates :end_date, presence: true
 
+  scope :end_date_greater_than, lambda { |end_date| where(['end_date > ?', end_date]) }
+
   def short_info
     if self.description.nil?
       self.project.name

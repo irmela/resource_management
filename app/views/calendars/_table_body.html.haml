@@ -1,5 +1,5 @@
 %tbody.table-body
-  - @ressources.each do |ressource|
+  - @ressources.by_status(true).each do |ressource|
     %tr.ressource-row
       %td= ressource.name
       - @calendar.weeks.each do |week|
@@ -12,9 +12,9 @@
                   %span.glyphicon.glyphicons-lock
                     = link_to '', '', :title => Holidays.on(day, :de)[0][:name]
               - else
-                - Job.all.each do |job|
+                - Job.end_date_greater_than(@calendar.first_day - 1).each do |job|
                   - if day.between?(job.start_date, job.end_date) && ressource.id == job.ressource_id
-                    .job{:style => "background:#{Project.find_by_id(job.project_id).color};"}
+                    .job{:style => "background:#{Project.find_by_id(job.project_id).color};", :class => job.all_day == true ? 'all-day' : ''}
                       = link_to '', edit_job_path(job, :department => params[:department], :cal_start => params[:cal_start]), :title => truncate(job.short_info, :length => 32), remote: true
                 = new_job(day, ressource.id)
 
