@@ -1,5 +1,5 @@
 %tbody.table-body
-  - @ressources.each do |ressource|
+  - @ressources.by_status(true).each do |ressource|
     %tr.ressource-row
       %td= ressource.name
       - @calendar.weeks.each do |week|

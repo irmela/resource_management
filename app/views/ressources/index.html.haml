@@ -10,6 +10,7 @@
         %th Name
         %th Department
         %th Color
+        %th Status
         %th
         %th
         %th
@@ -20,6 +21,7 @@
         %td
           %span.color-icon{:style => "background-color:#{ressource.color}"}
           = ressource.color
+        %td= ressource.status == true ? 'Active' : 'Inactive'
         %td= link_to 'Show', ressource
         %td= link_to 'Edit', edit_ressource_path(ressource)
         %td= link_to 'Destroy', ressource, method: :delete, data: { confirm: 'Are you sure?' }
