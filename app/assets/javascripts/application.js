@@ -34,20 +34,37 @@ setJobHeights = function() {
   $(".day").each(function() {
     var jobCount;
     jobCount = $(this).find(".job").length;
-    $(this).find(".job").css({
-      height: (1 / jobCount) * 100 + "%"
-    });
-    $(this).hover((function() {
-      $(this).find(".job").css({
-        height: (1 / (jobCount + 1)) * 100 + "%"
-      });
-      $(this).find(".new").css({
-        height: (1 / (jobCount + 1)) * 100 + "%"
-      });
-    }), function() {
+
+    // If there is a job tagged with all-day set height to 100%
+    if($(this).find(".all-day").length) {
+      $(this).find('.all-day').eq(0).css({height: '100%', borderTop: 'none'});
+      if($(this).find(".all-day").length) {
+        $(this).find('.all-day').eq(0).css({height: '100%', borderTop: 'none'});
+        $(this).hover((function() {
+          $(this).find('.all-day').eq(0).css({height: '50%'});
+          $(this).find(".new").css({height: '50%'});
+        }), function() {
+          $(this).find('.all-day').eq(0).css({height: '100%'});
+        });
+      }
+    }
+    // set job height to (1 / jobCount) * 100 + "%"
+    else {
       $(this).find(".job").css({
         height: (1 / jobCount) * 100 + "%"
       });
-    });
+      $(this).hover((function() {
+        $(this).find(".job").css({
+          height: (1 / (jobCount + 1)) * 100 + "%"
+        });
+        $(this).find(".new").css({
+          height: (1 / (jobCount + 1)) * 100 + "%"
+        });
+      }), function() {
+        $(this).find(".job").css({
+          height: (1 / jobCount) * 100 + "%"
+        });
+      });
+    }
   });
 };
