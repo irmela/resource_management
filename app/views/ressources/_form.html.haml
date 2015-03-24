@@ -21,5 +21,10 @@
     .col-sm-10
       = f.text_field :color, :class => "form-control"
   .form-group
+    = f.label :status, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.check_box :status
+      = label :true, "Active"
+  .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit :class => "btn btn-primary"

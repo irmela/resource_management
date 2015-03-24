@@ -7,4 +7,5 @@ class Ressource < ActiveRecord::Base
 
   scope :ordered_by_department, lambda { order("department") }
   scope :with_department, lambda { |department| where(department: department) }
+  scope :by_status, lambda { |status| where(status: status) }
 end
