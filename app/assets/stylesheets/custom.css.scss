@@ -1,5 +1,11 @@
 @import "compass";
 
+/* =============================================================================
+    Globals
+   ========================================================================== */
+body {
+	color: #575B5E;
+}
 
 a {
 	text-decoration: none;
@@ -9,6 +15,9 @@ a {
 	}
 }
 
+/* =============================================================================
+    Page Header
+   ========================================================================== */
 .page-header {
 	position: relative;
 	> a { display: block; }
@@ -16,13 +25,6 @@ a {
 		margin: 0;
 		text-align: center;
 	}
-}
-#job-form, #calendar {
-	width: 100%;
-}
-
-#job-form {
-	overflow: hidden;
 }
 
 .filter-list, .pager-list {
@@ -42,9 +44,22 @@ a {
 	right: 0;
 }
 
+/* =============================================================================
+    Forms
+   ========================================================================== */
+#job-form, #calendar {
+	width: 100%;
+}
+
+#job-form {
+	clear: both;
+	label {
+		margin-top: 0.75em;
+	}
+}
+
 select {
 	border: 1px solid #cccccc;
-	width: 9em;
 }
 
 .form-control {
@@ -52,19 +67,21 @@ select {
 }
 
 .form-actions {
-	padding: 0 5px;
+	clear: both;
+	margin-bottom: 3em;
 }
 
-#new_job .delete { display: none; }
 
-.color-icon {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  margin-right: 0.5em;
-  vertical-align: bottom;
-  @include border-radius(3px);
-  border: 1px solid #757575;
+/* =============================================================================
+    Calendar Table
+   ========================================================================== */
+th {
+	.week-nr, .date {
+		text-align: center;
+	}
+	.date {
+		font-weight: normal;
+	}
 }
 
 .week-container {
@@ -132,14 +149,9 @@ select {
 	}
 }
 
-.week-label {
-	text-align: center;
-}
-.week-date {
-	display: block;
-	font-weight: normal;
-}
-
+/* =============================================================================
+    Project list
+   ========================================================================== */
 .project-list {
 	margin: 4em 0 6em 0;
 	.project {
@@ -150,10 +162,23 @@ select {
 		min-width: 10em;
 	}
 }
+.color-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+  vertical-align: bottom;
+  @include border-radius(3px);
+  border: 1px solid #757575;
+}
 
+/* =============================================================================
+   Misc
+   ========================================================================== */
 .glyphicons-lock:after {
 	font-family: 'Glyphicons Halflings';
 	content: "\E033";
 	font-size: 0.9em;
 	color: #999;
 }
+

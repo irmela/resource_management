@@ -19,15 +19,18 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require jquery.minicolors
 //= require tipsy
+//= require ../../../vendor/assets/javascripts/bootstrap-select.min.js
 
 var setJobHeights;
 
 $(document).ready(function() {
   setJobHeights();
+  $('select').selectpicker({size: 6});
 });
 
 $(document).on("page:load", function(e) {
   setJobHeights();
+  $('select').selectpicker({size: 6});
 });
 
 setJobHeights = function() {
