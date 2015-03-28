@@ -9,3 +9,7 @@
         - @job.errors.full_messages.each do |msg|
           %li= msg
   = render partial: 'form_fields', locals: { f: f }
+  .form-group.col-sm-4.form-actions
+    .col-sm-12
+      = f.submit :class => "btn btn-sm btn-primary"
+      = content_tag(:div, 'Close', :class => "btn btn-sm btn-default", :id => "close")
