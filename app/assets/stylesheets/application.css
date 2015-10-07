@@ -16,4 +16,5 @@
  *= require jquery.minicolors
  *= require tipsy
  *= require ../../../vendor/assets/stylesheets/bootstrap-select.min.css
+ *= require recurring_select
  */

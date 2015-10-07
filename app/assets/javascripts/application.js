@@ -20,6 +20,7 @@
 //= require jquery.minicolors
 //= require tipsy
 //= require ../../../vendor/assets/javascripts/bootstrap-select.min.js
+//= require recurring_select
 
 var setJobHeights;
 
