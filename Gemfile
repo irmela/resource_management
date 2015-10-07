@@ -35,6 +35,8 @@ gem 'thin'
 gem 'seed_dump'
 
 gem 'holidays'
+gem 'ice_cube'
+gem 'recurring_select'
 
 group :development do
 	# Capybara helps you test web applications by simulating how a real user would interact with your app.

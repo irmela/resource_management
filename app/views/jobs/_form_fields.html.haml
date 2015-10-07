@@ -1,18 +1,18 @@
-.form-group.col-sm-4
+.form-group.col-sm-3
   = f.label :project_id, :class => "col-sm-12"
   .col-sm-12
     = f.select :project_id, options_for_select(Project.where(status: true).map{|s|[s.name, s.id]}.sort, @job.project_id), { }, { 'data-live-search' => 'true' }
   = f.label :ressource_id, :class => "col-sm-12"
   .col-sm-12
     = f.select :ressource_id, options_for_select(Ressource.all.map{|s|[s.name, s.id]}.sort, @job.ressource_id), { }, { 'data-live-search' => 'true' }
-.form-group.col-sm-4
+.form-group.col-sm-3
   = f.label :start_date, :class => "col-sm-12"
   .col-sm-12
     = f.text_field :start_date, 'data-provide' => 'datepicker', :class => "form-control"
   = f.label :end_date, :class => "col-sm-12"
   .col-sm-12
     = f.text_field :end_date, 'data-provide' => 'datepicker', :class => "form-control"
-.form-group.col-sm-4
+.form-group.col-sm-3
   = f.label :description, :class => "col-sm-12"
   .col-sm-12
     = f.text_field :description, :class => "form-control"
@@ -20,5 +20,9 @@
   .col-sm-12
     = f.check_box :all_day
     = label :true, "All day"
+.form-group.col-sm-3
+  = f.label :schedule, :class => "col-sm-12"
+  .col-sm-12
+    = f.select_recurring :schedule, nil, :allow_blank => true
 = f.hidden_field :department, :value => params[:department]
 = f.hidden_field :cal_start, :value => params[:cal_start]
