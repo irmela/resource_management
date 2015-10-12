@@ -28,7 +28,7 @@ class Job < ActiveRecord::Base
   scope :end_date_greater_than, lambda { |end_date| where(['end_date > ?', end_date]) }
 
   def short_info
-    if self.description.nil?
+    if self.description.empty?
       self.project.name
     else
       self.project.name + ' (' + self.description + ')'
