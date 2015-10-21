@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :all_jobs, only: [:index, :create, :update]
   before_action :set_job, only: [:edit, :update, :destroy]
   respond_to :html, :js
