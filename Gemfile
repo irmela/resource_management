@@ -34,9 +34,9 @@ gem 'thin'
 
 gem 'seed_dump'
 
-gem 'devise'
-gem 'omniauth'
-gem 'omniauth-redmine'
+gem 'devise', '~> 3.5.2'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-redmine', '~> 0.0.2'
 
 gem 'holidays'
 gem 'ice_cube'
@@ -52,5 +52,5 @@ group :development do
 end
 
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.3.18'
 end
