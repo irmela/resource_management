@@ -24,12 +24,13 @@
           = link_to "WB Ressourcen", "/", :class => "navbar-brand"
         .collapse.navbar-collapse
           %ul.nav.navbar-nav.pull-right
-            %li
-              = link_to 'Projects', projects_path
-            %li
-              = link_to 'Ressources', ressources_path
-            %li
-              = link_to 'Jobs', jobs_path
+            - if user_signed_in?
+              %li
+                = link_to 'Projects', projects_path
+              %li
+                = link_to 'Ressources', ressources_path
+              %li
+                = link_to 'Jobs', jobs_path
             %li
               - if user_signed_in?
                 = link_to 'Logout', destroy_user_session_path
