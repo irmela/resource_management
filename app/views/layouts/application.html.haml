@@ -23,13 +23,18 @@
             %span.icon-bar
           = link_to "WB Ressourcen", "/", :class => "navbar-brand"
         .collapse.navbar-collapse
-          %ul.nav.navbar-nav
+          %ul.nav.navbar-nav.pull-right
             %li
-              %a{:href => "/projects"} Projects
+              = link_to 'Projects', projects_path
             %li
-              %a{:href => "/ressources"} Ressources
+              = link_to 'Ressources', ressources_path
             %li
-              %a{:href => "/jobs"} Jobs
+              = link_to 'Jobs', jobs_path
+            %li
+              - if user_signed_in?
+                = link_to 'Logout', destroy_user_session_path
+              - else
+                = link_to 'Login', new_user_session_path
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable" do

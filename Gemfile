@@ -34,6 +34,10 @@ gem 'thin'
 
 gem 'seed_dump'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-redmine'
+
 gem 'holidays'
 gem 'ice_cube'
 gem 'recurring_select'
