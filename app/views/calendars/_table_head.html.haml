@@ -3,5 +3,5 @@
     %th Ressources
     - @calendar.weeks.map do |week|
       %th
-        .week-nr= 'KW ' + (week[0] +7 ).strftime("%U")
+        .week-nr= 'KW ' + week[0].cweek.to_s
         .date= week[0].strftime("%d.%m") + '-' + (week[0] + 4).strftime("%d.%m")
