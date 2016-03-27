@@ -21,6 +21,7 @@
 //= require tipsy
 //= require ../../../vendor/assets/javascripts/bootstrap-select.min.js
 //= require recurring_select
+//= require jquery.floatThead.min.js
 
 var setJobHeights;
 
