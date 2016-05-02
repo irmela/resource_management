@@ -56,6 +56,9 @@ gem 'ice_cube'
 # provides a useful interface for creating recurring rules for the ice_cube gem
 gem 'recurring_select'
 
+# Turns off Rails asset pipeline log.
+gem 'quiet_assets', '~> 1.1'
+
 group :development do
 	# Capybara helps you test web applications by simulating how a real user would interact with your app.
 	#gem 'capybara'
