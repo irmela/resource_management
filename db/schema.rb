@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 20151021133133) do
     t.text     "schedule"
   end
 
+  add_index "jobs", ["project_id"], name: "index_jobs_on_project_id"
+  add_index "jobs", ["ressource_id"], name: "index_jobs_on_ressource_id"
+
   create_table "projects", force: true do |t|
     t.string   "name"
     t.string   "department"

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def self.get_user_groups(uid)
     # buil url to get all groups a redmine user is associated with
-    url = "https://redmine.wetzelbemm.com/users/" + uid.to_s + ".json"
+    url = "https://redmine.cbe-digital.de/users/" + uid.to_s + ".json"
     params = { :key => "e8cf7c6327026fc9b06b9b30dd3a987cfcba8bad", :include => 'groups' }
 
     uri = URI.parse(url)
