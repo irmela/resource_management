@@ -10,7 +10,7 @@
     %thead
       %tr
         %th Project
-        %th Ressource
+        %th Resource
         %th Start date
         %th End date
         %th Description
@@ -21,7 +21,7 @@
     %tbody
       = content_tag_for(:tr, @jobs) do |job|
         %td= Project.find_by_id(job.project_id).name
-        %td= Ressource.find_by_id(job.ressource_id).name
+        %td= Resource.find_by_id(job.resource_id).name
         %td= job.start_date
         %td= job.end_date
         %td= job.description

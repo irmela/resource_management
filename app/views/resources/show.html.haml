@@ -1,0 +1,17 @@
+.page-header
+  = link_to resources_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_resource_path(@resource), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show resource
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @resource.name
+  %dt Department:
+  %dd= @resource.department
+  %dt Color:
+  %dd
+    %span.color-icon{:style => "background-color:#{@resource.color}"}
+    = @resource.color

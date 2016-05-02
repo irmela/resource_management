@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021133133) do
+ActiveRecord::Schema.define(version: 20160502172447) do
 
   create_table "jobs", force: true do |t|
     t.integer  "project_id"
-    t.integer  "ressource_id"
+    t.integer  "resource_id"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20151021133133) do
   end
 
   add_index "jobs", ["project_id"], name: "index_jobs_on_project_id"
-  add_index "jobs", ["ressource_id"], name: "index_jobs_on_ressource_id"
+  add_index "jobs", ["resource_id"], name: "index_jobs_on_resource_id"
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20151021133133) do
     t.boolean  "status"
   end
 
-  create_table "ressources", force: true do |t|
+  create_table "resources", force: true do |t|
     t.string   "name"
     t.string   "department"
     t.string   "color"

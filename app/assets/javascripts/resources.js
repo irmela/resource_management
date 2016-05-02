@@ -1,11 +1,11 @@
 $(document).on("page:load", function(e) {
-  $('#ressource_color').minicolors({
+  $('#resource_color').minicolors({
     theme: 'bootstrap'
   });
 });
 
 $(document).ready(function() {
-  $('#ressource_color').minicolors({
+  $('#resource_color').minicolors({
     theme: 'bootstrap'
   });
   $(document).on('scroll', function(e) {
