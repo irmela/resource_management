@@ -22,10 +22,9 @@ test:
 
 production:
   adapter: mysql2
-  encoding: utf8 
-  database: example 
-  pool: 10 
-  username: example 
-  password: secure 
-  socket: /var/run/mysqld/mysqld.sock 
-  reconnect: true
+  database: myapp
+  pool: 20
+  encoding: utf8
+  username: mydbuser
+  password: mydbpassword
+  host:  localhost
