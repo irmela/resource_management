@@ -1,7 +1,7 @@
 class CalendarsController < ApplicationController
   def show
   	@calendar = Calendar.new(calendar_params)
-  	@ressources = params[:department] ? Ressource.where(department: params[:department]) : Ressource.all.order('department')
+  	@resources = params[:department] ? Resource.where(department: params[:department]) : Resource.all.order('department')
   end
   private
     # Never trust parameters from the scary internet, only allow the white list through.

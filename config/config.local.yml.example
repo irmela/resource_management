@@ -1,0 +1,15 @@
+default: &default
+  omniauth_redmine_app_id: skSkdkLk39928laskdjaAjaslkdjlaAdljalskdj
+  omniauth_redmine_app_secret: s93ns92nslfakKK9NGFKo8akasjd09sdkj
+  omniauth_redmine_api_key: ssdsjksjksl93idlaksjdl39jalskdj
+  omniauth_redmine_base_url: https://redmine.example.com
+  omniauth_redmine_authorized_groups: ['Group1', 'Group2'] # leave empty for no group restriction
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -1,4 +1,4 @@
-class Ressource < ActiveRecord::Base
+class Resource < ActiveRecord::Base
 	has_many :jobs, dependent: :destroy
 
 	validates :name, presence: true

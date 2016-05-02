@@ -1,7 +1,7 @@
 %tbody.table-body
-  - @ressources.by_status(true).each do |ressource|
-    %tr.ressource-row
-      %td= ressource.name
+  - @resources.by_status(true).each do |resource|
+    %tr.resource-row
+      %td= resource.name
       - @calendar.weeks.each do |week|
         - work_days = week[0]..week[4]
         %td.week
@@ -12,11 +12,10 @@
                   %span.glyphicon.glyphicons-lock
                     = link_to '', '', :title => Holidays.on(day, :de)[0][:name]
               - else
-                - Job.end_date_greater_than(@calendar.first_day - 1).each do |job|
-                  - if ressource.id == job.ressource_id
-                    - if job.schedule.blank? && day.between?(job.start_date, job.end_date)
-                      = render_job_item(job)
-                    - elsif !job.converted_schedule.blank? && job.converted_schedule.occurs_on?(day)
-                      = render_job_item(job)
-                = new_job(day, ressource.id)
+                - Job.where("resource_id = ? AND start_date <= ? AND end_date >= ?", resource.id, day, day).includes(:project).each do |job|
+                  - if job.schedule.blank?
+                    = render_job_item(job)
+                  - elsif !job.converted_schedule.blank? && job.converted_schedule.occurs_on?(day)
+                    = render_job_item(job)
+                = new_job(day, resource.id)
 

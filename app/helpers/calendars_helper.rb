@@ -18,16 +18,16 @@ module CalendarsHelper
 		end
 	end
 
-	def new_job(date, ressourceID)
-		link_to '', new_job_path({:ressource_id => ressourceID, :start_date => date.strftime("%Y-%m-%d"), :end_date => date.strftime("%Y-%m-%d"), :department => params[:department], :cal_start => params[:cal_start]}), remote: true, :class => "new"
+	def new_job(date, resourceID)
+		link_to '', new_job_path({:resource_id => resourceID, :start_date => date.strftime("%Y-%m-%d"), :end_date => date.strftime("%Y-%m-%d"), :department => params[:department], :cal_start => params[:cal_start]}), remote: true, :class => "new"
 	end
 
-	def projects_by_ressources
-		@projects_by_ressources = []
+	def projects_by_resources
+		@projects_by_resources = []
 		if params[:department] && params[:department] != 'pm'
-			@projects_by_ressources.push(params[:department], 'allg')
+			@projects_by_resources.push(params[:department], 'allg')
 		else
-			@projects_by_ressources = Project.uniq.pluck(:department).map
+			@projects_by_resources = Project.uniq.pluck(:department).map
 		end
 	end
 

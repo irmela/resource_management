@@ -17,3 +17,15 @@
 
 # Ignore Assets
 public/assets
+
+# Ignore database settings
+config/database.yml
+
+# Ignoring vendor/bundle
+vendor/bundle
+
+# Ignoring local Gemfile
+Gemfile.local
+
+# Ignore local config
+config/config.local.yml

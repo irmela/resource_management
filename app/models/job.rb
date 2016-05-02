@@ -1,11 +1,11 @@
 class Job < ActiveRecord::Base
   include IceCube
 
-	belongs_to :ressource
+	belongs_to :resource
 	belongs_to :project
 
 	validates :project_id, presence: true
-	validates :ressource_id, presence: true
+	validates :resource_id, presence: true
 	validates :start_date, presence: true
 	validates :end_date, presence: true
 

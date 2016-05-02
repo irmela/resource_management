@@ -2,9 +2,9 @@
   = f.label :project_id, :class => "col-sm-12"
   .col-sm-12
     = f.select :project_id, options_for_select(Project.where(status: true).map{|s|[s.name, s.id]}.sort, @job.project_id), { }, { 'data-live-search' => 'true' }
-  = f.label :ressource_id, :class => "col-sm-12"
+  = f.label :resource_id, :class => "col-sm-12"
   .col-sm-12
-    = f.select :ressource_id, options_for_select(Ressource.all.map{|s|[s.name, s.id]}.sort, @job.ressource_id), { }, { 'data-live-search' => 'true' }
+    = f.select :resource_id, options_for_select(Resource.all.map{|s|[s.name, s.id]}.sort, @job.resource_id), { }, { 'data-live-search' => 'true' }
 .form-group.col-sm-3
   = f.label :start_date, :class => "col-sm-12"
   .col-sm-12

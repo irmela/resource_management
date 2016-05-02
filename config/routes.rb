@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :projects
 
-  resources :ressources
+  resources :resources
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
