@@ -26,3 +26,6 @@ vendor/bundle
 
 # Ignoring local Gemfile
 Gemfile.local
+
+# Ignore local config
+config/config.local.yml

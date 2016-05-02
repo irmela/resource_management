@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
 
   def self.get_user_groups(uid)
     # buil url to get all groups a redmine user is associated with
-    url = "https://redmine.cbe-digital.de/users/" + uid.to_s + ".json"
-    params = { :key => "e8cf7c6327026fc9b06b9b30dd3a987cfcba8bad", :include => 'groups' }
+    url = "#{Rails.configuration.local_configuration[Rails.env]['omniauth_redmine_base_url']}/users/" + uid.to_s + ".json"
+    params = { :key => Rails.configuration.local_configuration[Rails.env]['omniauth_redmine_api_key'], :include => 'groups' }
 
     uri = URI.parse(url)
     uri.query = URI.encode_www_form(params)
@@ -32,14 +32,20 @@ class User < ActiveRecord::Base
     groups = get_user_groups(uid)
     access = false
 
-    # iterate through groups to see if user is member of group Wetzelbemm
+    # if access is not restricted to specific groups set access to true
+    if Rails.configuration.local_configuration[Rails.env]['omniauth_redmine_authorized_groups'].blank?
+      access = true
+      return access
+    end
+
+    # iterate through groups to see if user is member of a authorized group
     groups.map do |group|
-      if group["name"] == 'Wetzelbemm'
+      if Rails.configuration.local_configuration[Rails.env]['omniauth_redmine_authorized_groups'].include? group["name"]
         access = true
         return access
       end
     end
-    # return false if user is no memeber of group Wetzelbemm
+    # return false if user is no memeber of a authorized group
     return access
   end
 end
