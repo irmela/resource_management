@@ -23,3 +23,6 @@ config/database.yml
 
 # Ignoring vendor/bundle
 vendor/bundle
+
+# Ignoring local Gemfile
+Gemfile.local
