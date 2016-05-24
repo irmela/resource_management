@@ -1,11 +1,14 @@
 # README
 
-Rails 4 ressource management / calendar application
+* Rails 4 ressource management / calendar application.
+* Design based on bootstrap
+* User authentication with devise. Currently only implemented redmine-omniauth.
+
+![Screenshot 1](https://github.com/irmela/resource_management/blob/master/screenshot1.png)
 
 ### System dependencies
-* Ruby 2.0.0p481
+* Ruby 2.0
 * Rails 4.1.5
-* Nodejs
 
 ### Configuration
 * Install gems: `bundle install`
@@ -27,10 +30,10 @@ Rails 4 ressource management / calendar application
 ## TODO
 
 * Color-shading for project colors
-* User authentication
-* Date repeat
 * Some projects should have multiple departments
-* Making ressource and project name unique
-* Adding reccource and project initials
+* Making resource and project name unique
+* Adding resource and project initials
 * <s>Show project name on hover</s>
 * <s>Delete job when its project or ressource gets deleted</s>
+* <s>User authentication</s>
+* <s>Date repeat</s>
