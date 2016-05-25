@@ -12,7 +12,7 @@
                   %span.glyphicon.glyphicons-lock
                     = link_to '', '', :title => Holidays.on(day, :de)[0][:name]
               - else
-                - Job.where("resource_id = ? AND start_date < ? AND end_date > ?", resource.id, day, day.yesterday).includes(:project).each do |job|
+                - Job.where("resource_id = ? AND start_date <= ? AND end_date > ?", resource.id, day, day.yesterday).includes(:project).each do |job|
                   - if job.schedule.blank?
                     = render_job_item(job)
                   - elsif !job.converted_schedule.blank? && job.converted_schedule.occurs_on?(day)
