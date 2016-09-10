@@ -86,6 +86,10 @@ th {
 	}
 }
 
+.datepicker {
+	z-index: 9999;
+}
+
 .week-container {
 	display: inline-block;
 	span { display: block; text-align: center; }

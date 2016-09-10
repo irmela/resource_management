@@ -23,5 +23,11 @@ module ResourcePlanner
     config.before_initialize do
       Rails.configuration.local_configuration = YAML.load_file("#{Rails.root}/config/config.local.yml")
     end
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
