@@ -1,6 +1,8 @@
 class Job < ActiveRecord::Base
   include IceCube
 
+  has_paper_trail
+
 	belongs_to :resource
 	belongs_to :project
 
