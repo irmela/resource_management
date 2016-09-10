@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :all_jobs, only: [:index, :create, :update]
   before_action :set_job, only: [:edit, :update, :destroy]
+  before_filter :set_paper_trail_whodunnit
   respond_to :html, :js
 
   # GET /jobs
@@ -46,6 +47,10 @@ class JobsController < ApplicationController
     @calendar = Calendar.new(params.permit(:department, :cal_start))
     @resources = params[:department] ? Resource.with_department(params[:department]) : Resource.ordered_by_department
     @job.destroy
+  end
+
+  def history
+    @versions = PaperTrail::Version.where(:item_type => 'Job').order(:created_at => :desc)
   end
 
   private
