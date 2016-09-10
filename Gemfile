@@ -65,10 +65,6 @@ gem 'paper_trail', '~> 5.2'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-	# Capybara helps you test web applications by simulating how a real user would interact with your app.
-	#gem 'capybara'
-	# testing framework for Rails 3.x and 4.x.
-	#gem 'rspec-rails'
   # Provides a better error page
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   # Profiling toolkit for Rack applications
@@ -83,4 +79,20 @@ group :development do
   gem 'rubocop', require: false
 
   gem "rubycritic", :require => false
+end
+
+group :test do
+  # Making tests easy on the fingers and eyes
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
+end
+
+group :development, :test do
+  # testing framework for Rails
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
+  # provides integration between factory_girl
+  gem 'factory_girl_rails', '~> 4.7'
+  # Strategies for cleaning databases. Can be used to ensure a clean state for testing.
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.2'
+  # Capybara is an integration testing tool for rack based web applications. It simulates how a user would interact with a website
+  gem 'capybara', '~> 2.7'
 end
