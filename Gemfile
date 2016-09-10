@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.1'
 
 local_gemfile = File.dirname(__FILE__) + "/Gemfile.local"
 if File.file?(local_gemfile)
@@ -6,7 +7,7 @@ if File.file?(local_gemfile)
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.7.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use compass
@@ -43,9 +44,9 @@ gem 'tipsy-rails'
 gem 'seed_dump'
 
 # Flexible authentication solution for Rails with Warden
-gem 'devise', '~> 3.5.2'
+gem 'devise', '~> 4.2'
 # generalized Rack framework for multiple-provider authentication.
-gem 'omniauth', '~> 1.2.2'
+gem 'omniauth', '~> 1.3.1'
 # OmniAuth strategy for Redmine
 gem 'omniauth-redmine', '~> 0.0.2'
 
@@ -58,8 +59,12 @@ gem 'recurring_select'
 
 # Turns off Rails asset pipeline log.
 gem 'quiet_assets', '~> 1.1'
+# Track changes to your models' data. Good for auditing or versioning.
+gem 'paper_trail', '~> 5.2'
 
 group :development do
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 	# Capybara helps you test web applications by simulating how a real user would interact with your app.
 	#gem 'capybara'
 	# testing framework for Rails 3.x and 4.x.
@@ -70,4 +75,12 @@ group :development do
   gem 'rack-mini-profiler', '~> 0.9.9.2'
   # Help to kill N+1 queries and unused eager loading.
   gem 'bullet', '~> 5.0'
+  # debugging tool
+  gem 'pry'
+
+  gem 'brakeman', :require => false
+
+  gem 'rubocop', require: false
+
+  gem "rubycritic", :require => false
 end
