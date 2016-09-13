@@ -15,8 +15,5 @@
   %body
     = render 'layouts/navigation'
     .container
-      - flash.each do |name, msg|
-        = content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable" do
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
-          = msg
+      = render 'layouts/flash_messages'
       = yield
