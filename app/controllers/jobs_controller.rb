@@ -50,7 +50,8 @@ class JobsController < ApplicationController
   end
 
   def history
-    @versions = PaperTrail::Version.where(:item_type => 'Job').order(:created_at => :desc)
+    #@ToDo: Adding Pager
+    @versions = PaperTrail::Version.where(:item_type => 'Job').order(:created_at => :desc).last(100)
   end
 
   private

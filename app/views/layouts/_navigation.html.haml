@@ -1,0 +1,25 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "Resource Planner", "/", :class => "navbar-brand"
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.pull-right
+        - if user_signed_in?
+          %li
+            = link_to 'History', jobs_history_path
+          %li
+            = link_to 'Projects', projects_path
+          %li
+            = link_to 'Resources', resources_path
+          %li
+            = link_to 'Jobs', jobs_path
+        %li
+          - if user_signed_in?
+            = link_to 'Logout', destroy_user_session_path
+          - else
+            = link_to 'Login', new_user_session_path
