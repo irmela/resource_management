@@ -1,0 +1,28 @@
+.page-header
+  %h1 History
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Version ID
+        %th Action
+        %th ID
+        %th Before
+        %th After
+        %th Updated by
+        %th Updated on
+    %tbody
+      = content_tag_for(:tr, @versions) do |version|
+        - current_version = Job.find(version.item_id) unless version.event == 'destroy'
+        - pev_version = current_version.paper_trail.previous_version unless current_version.nil?
+        %td= version.id
+        %td= version.event
+        %td= version.item_id
+        %td
+          - unless pev_version.nil?
+            = render_job_history_item(pev_version)
+        %td
+          - unless current_version.nil?
+            = render_job_history_item(current_version)
+        %td= User.find(version.whodunnit).email
+        %td= l(version.created_at, format: "%d.%m.%Y %H:%M")
