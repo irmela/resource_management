@@ -7,8 +7,8 @@
 ![Screenshot 1](https://github.com/irmela/resource_management/blob/master/screenshot1.png)
 
 ### System dependencies
-* Ruby 2.0
-* Rails 4.1.5
+* Ruby 2.3.1
+* Rails 4.2.7.1
 
 ### Configuration
 * Install gems: `bundle install`
@@ -37,3 +37,4 @@
 * <s>Delete job when its project or ressource gets deleted</s>
 * <s>User authentication</s>
 * <s>Date repeat</s>
+* <s>History</s>
