@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProjectsController, :type => :controller do
+RSpec.describe ResourcesController, :type => :controller do
 
   describe "anonymous access" do
     describe 'GET #new' do
@@ -12,28 +12,28 @@ RSpec.describe ProjectsController, :type => :controller do
 
     describe "POST #create" do
       it "requires login" do
-        post :create, project: FactoryGirl.attributes_for(:project)
+        post :create, resource: FactoryGirl.attributes_for(:resource)
         expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe 'GET #edit' do
       it "requires login" do
-        get :edit, id: FactoryGirl.create(:project)
+        get :edit, id: FactoryGirl.create(:resource)
         expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe "PATCH #update" do
       it "requires login" do
-        patch :update, id: FactoryGirl.create(:project), project: FactoryGirl.attributes_for(:project)
+        patch :update, id: FactoryGirl.create(:resource), resource: FactoryGirl.attributes_for(:resource)
         expect(response).to redirect_to new_user_session_path
       end
     end
 
     describe "DELETE #destroy" do
       it "requires login" do
-        delete :destroy, id: FactoryGirl.create(:project)
+        delete :destroy, id: FactoryGirl.create(:resource)
         expect(response).to redirect_to new_user_session_path
       end
     end
