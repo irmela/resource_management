@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
-	has_many :jobs, dependent: :destroy
+  has_many :jobs, dependent: :destroy
 
-	validates :name, presence: true
-	validates :department, presence: true
-	validates :color, presence: true
+  validates :name, presence: true
+  validates :department, presence: true
+  validates :color, presence: true
 end

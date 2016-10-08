@@ -3,13 +3,13 @@ class Job < ActiveRecord::Base
 
   has_paper_trail
 
-	belongs_to :resource
-	belongs_to :project
+  belongs_to :resource
+  belongs_to :project
 
-	validates :project_id, presence: true
-	validates :resource_id, presence: true
-	validates :start_date, presence: true
-	validates :end_date, presence: true
+  validates :project_id, presence: true
+  validates :resource_id, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 
   serialize :schedule, Hash
 

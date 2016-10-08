@@ -55,22 +55,22 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:project_id, :resource_id, :start_date, :end_date, :description, :cal_start, :department, :all_day, :schedule)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:project_id, :resource_id, :start_date, :end_date, :description, :cal_start, :department, :all_day, :schedule)
+  end
 
-    def all_jobs
-      @jobs = Job.all
-    end
+  def all_jobs
+    @jobs = Job.all
+  end
 
-    def initialize_calendar
-      @calendar = Calendar.new(params.permit(:department, :cal_start))
-      @resources = job_params[:department] != '' ? Resource.with_department(job_params[:department]) : Resource.ordered_by_department
-    end
+  def initialize_calendar
+    @calendar = Calendar.new(params.permit(:department, :cal_start))
+    @resources = job_params[:department] != '' ? Resource.with_department(job_params[:department]) : Resource.ordered_by_department
+  end
 end
